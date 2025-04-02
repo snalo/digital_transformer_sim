@@ -31,21 +31,21 @@ pidcop_transformer_analysis/
 │   ├── hw_profile.py                 # Handles hardware profiles
 │   └── estimator.py                  # Latency, energy, and area estimations
 │
-├── results/
-│   └── pidcop_estimates.csv          # Estimated metrics for each model
 │
 ├── visualizations/
 │   └── plot_results.py               # Visualization scripts (charts, graphs)
 │
 ├── main.py                           # Main entry point for analysis
 └── README.md                         # Project overview and usage instructions
+|
+├── results/
+   └── simulation_results.csv          # simulated results for metrics for each model and hardware
 ```
 
 ---
 
 ## Requirements
 
-- Python 3.8+
 - pandas
 - matplotlib (optional, for visualizations)
 - json
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 ## How It Works
 
 1. **Configurations**:  
-   Add model and hardware specs to the `configs/` folder.
+   Add model to root and hardware specs to the `all_hw_profiles/` folder.
 
 2. **Run Analysis**:  
    Use the main script to process configurations:
@@ -71,13 +71,13 @@ pip install -r requirements.txt
    ```
 
 3. **Output**:  
-   Results are saved to `results/pidcop_estimates.csv`.
+   Results are saved to `simulation_results.csv`.
 
 4. **Visualizations** *(optional)*:  
    Generate plots by running:
 
    ```bash
-   python visualizations/plot_results.py
+   python plot_results.py
    ```
 
 ---
@@ -89,13 +89,3 @@ pip install -r requirements.txt
 - Area estimates based on hardware constraints
 
 ---
-
-##  Contribution
-
-Pull requests and issues are welcome! Please ensure code is tested and documented.
-
----
-
-## License
-
-MIT License
