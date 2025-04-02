@@ -1,0 +1,54 @@
+{
+    "deap_cnn": {
+        "description": "DEAP-CNN: Digital Electronics and Analog Photonics for CNNs. Combines MZI-based photonic dot product engines with electronic accumulation. Source: Bangari et al., IEEE JSTQE 2020.",
+        "mul_lanes": 64,
+        "mul_cols": 64,
+        "bit_precision": 4,
+        "bit_rate": 10,
+        "max_parallel_dotprods": 4096,
+        "energy_per_mac": {
+            "value": 1.5e-14,
+            "unit": "J",
+            "source": "Bangari et al., DEAP-CNN (https://www.queensu.ca/physics/shastrilab/sites/shastwww/files/uploaded_files/publications/journals/56_Bangari_JSTQE_deap_2020.pdf)"
+        },
+        "adc_energy_per_conv": {
+            "value": 4e-13,
+            "unit": "J",
+            "source": "ADC used to digitize integrated output after PCA (same paper)"
+        },
+        "dac_energy_per_bit": {
+            "value": 2e-13,
+            "unit": "J",
+            "source": "DAC for electro-optic modulation of inputs"
+        },
+        "static_power": {
+            "value": 0.035,
+            "unit": "W",
+            "source": "Laser and MZI biasing overhead (estimated from paper figures)"
+        },
+        "area_per_mul_lane": {
+            "value": 0.0025,
+            "unit": "mm^2",
+            "source": "Hybrid electro-optic MZI + driver layout per lane"
+        },
+        "pca_area": {
+            "value": 0.0075,
+            "unit": "mm^2",
+            "source": "Photodetector with integrator and sample-hold circuit"
+        },
+        "adc_area": {
+            "value": 0.0018,
+            "unit": "mm^2",
+            "source": "Moderate-resolution ADC used post-PCA"
+        },
+        "waveguide_pitch": {
+            "value": 0.02,
+            "unit": "mm",
+            "source": "Typical waveguide spacing for WDM with low crosstalk"
+        },
+        "reuse_factor": {
+            "value": 8,
+            "source": "CNN-style reuse of kernels and matrix tiles assumed"
+        }
+    }
+}
