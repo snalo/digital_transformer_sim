@@ -115,11 +115,11 @@
     },
     "pidcop_asymmetric": {
         "description": "Asymmetric config with N=32, M=64 (2048 dot products)",
-        "mul_lanes": 32,
-        "mul_cols": 64,
+        "mul_lanes": 146,
+        "mul_cols": 100,
         "bit_precision": 4,
         "bit_rate": 1,
-        "max_parallel_dotprods": 2048,
+        "max_parallel_dotprods": 14600,
         "p_out_per_lane": -22.1,
         "pd_threshold": -22.0,
         "sources": [
