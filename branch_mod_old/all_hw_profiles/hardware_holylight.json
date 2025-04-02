@@ -1,0 +1,54 @@
+{
+    "holylight": {
+        "description": "Holylight: A Nanophotonic Accelerator for Deep Learning. Optimized for photonic convolution and dense layers with digital support. Source: DATE 2019.",
+        "mul_lanes": 128,
+        "mul_cols": 64,
+        "bit_precision": 4,
+        "bit_rate": 8,
+        "max_parallel_dotprods": 8192,
+        "energy_per_mac": {
+            "value": 2e-14,
+            "unit": "J",
+            "source": "Holylight paper (https://past.date-conference.com/proceedings-archive/2019/pdf/0156.pdf)"
+        },
+        "adc_energy_per_conv": {
+            "value": 3e-13,
+            "unit": "J",
+            "source": "Estimated from photonic-electronic interface requirements"
+        },
+        "dac_energy_per_bit": {
+            "value": 2e-13,
+            "unit": "J",
+            "source": "Standard modulator driver energy per bit"
+        },
+        "static_power": {
+            "value": 0.04,
+            "unit": "W",
+            "source": "Includes laser bias and tuning overhead"
+        },
+        "area_per_mul_lane": {
+            "value": 0.002,
+            "unit": "mm^2",
+            "source": "Compact photonic MAC layout with MRRs"
+        },
+        "pca_area": {
+            "value": 0.006,
+            "unit": "mm^2",
+            "source": "Integrated photodetector and summing network"
+        },
+        "adc_area": {
+            "value": 0.0015,
+            "unit": "mm^2",
+            "source": "Low-resolution ADC footprint"
+        },
+        "waveguide_pitch": {
+            "value": 0.02,
+            "unit": "mm",
+            "source": "Standard in dense silicon photonic layouts"
+        },
+        "reuse_factor": {
+            "value": 8,
+            "source": "Assumed reuse of filters/kernels across inputs"
+        }
+    }
+}
