@@ -45,5 +45,5 @@ for model in models:
 
 # Save results
 df = pd.DataFrame(results)
-df.to_csv("simulation_results3.csv", index=False)
+df.to_csv("simulation_results_new.csv", index=False)
 print("Simulation complete. Results saved to simulation_results.csv")
