@@ -1,30 +1,25 @@
 {
-    "pixel_photonic": {
+    "pixel_photonic4": {
         "description": "PIXEL photonic accelerator based on microring resonators for dot product execution. Source: PIXEL: Photonic Neural Network Accelerator (Shiflett et al.)",
-        "mul_lanes": 64,
-        "mul_cols": 64,
+        "mul_lanes": 4,
+        "mul_cols": 4,
         "bit_precision": 4,
         "bit_rate": 10,
-        "max_parallel_dotprods": 4096,
+        "max_parallel_dotprods": 4,
         "energy_per_mac": {
             "value": 5e-14,
             "unit": "J",
-            "source": "PIXEL paper: ~0.05 pJ/MAC using silicon photonic MRRs (https://hpcat.seas.gwu.edu/assets/files/PIXEL_Photonic_Neural_Network_Accelerator.pdf)"
-        },
-        "adc_energy_per_conv": {
-            "value": 5e-13,
-            "unit": "J",
-            "source": "ADC required for dot product readout in hybrid photonic-electronic architecture"
+            "source": "PIXEL hybrid design energy: ~50 fJ/MAC estimated from 4-bit \u00d7 4-bit OE design (Figure 4)"
         },
         "dac_energy_per_bit": {
-            "value": 2.5e-13,
+            "value": 5e-13,
             "unit": "J",
-            "source": "DAC used for modulating the optical input per bit"
+            "source": "PIXEL hybrid modulator driver energy (~500 fJ/bit)"
         },
         "static_power": {
-            "value": 0.03,
+            "value": 0.3,
             "unit": "W",
-            "source": "Estimated for laser bias, ring tuning, and control circuitry in photonic system"
+            "source": "MRR + control + laser static overhead for PIXEL 4-lane OE design"
         },
         "area_per_mul_lane": {
             "value": 0.002,
@@ -46,9 +41,15 @@
             "unit": "mm",
             "source": "Standard pitch used in silicon photonic waveguide arrays"
         },
-        "reuse_factor": {
-            "value": 8,
-            "source": "Assumed weight reuse for CNN/Transformer-style dot products"
+        "adc_energy_per_sample": {
+            "value": 3.16e-12,
+            "unit": "J",
+            "source": "Estimated from optical-to-electrical conversion and shift-accumulate power for PIXEL OE (Section IV.C)"
+        },
+        "dynamic_power": {
+            "value": 0.8,
+            "unit": "W",
+            "source": "Accumulated power of electrical shift-accumulate and o/e conversion for hybrid PIXEL OE (scaled to 4-lane)"
         }
     }
 }

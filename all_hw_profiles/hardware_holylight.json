@@ -2,29 +2,19 @@
     "holylight": {
         "description": "Holylight: A Nanophotonic Accelerator for Deep Learning. Optimized for photonic convolution and dense layers with digital support. Source: DATE 2019.",
         "mul_lanes": 128,
-        "mul_cols": 64,
+        "mul_cols": 128,
         "bit_precision": 4,
         "bit_rate": 8,
-        "max_parallel_dotprods": 8192,
-        "energy_per_mac": {
-            "value": 2e-14,
-            "unit": "J",
-            "source": "Holylight paper (https://past.date-conference.com/proceedings-archive/2019/pdf/0156.pdf)"
-        },
-        "adc_energy_per_conv": {
-            "value": 3e-13,
-            "unit": "J",
-            "source": "Estimated from photonic-electronic interface requirements"
-        },
+        "max_parallel_dotprods": 128,
         "dac_energy_per_bit": {
-            "value": 2e-13,
+            "value": 7.8e-12,
             "unit": "J",
-            "source": "Standard modulator driver energy per bit"
+            "source": "From Table I: 8 mW total power for 1024 DACs \u2192 7.8 \u00b5W/DAC = 7.8e-6 W / 1e9 bps = 7.8 pJ/bit"
         },
         "static_power": {
-            "value": 0.04,
+            "value": 21.24,
             "unit": "W",
-            "source": "Includes laser bias and tuning overhead"
+            "source": "Derived from HolyLight Table I: EO disks = 20.97 W (128\u00d7128 array \u00d7 1.28 mW/disk), resonators = 0.164 W, laser = 0.1 W. Total = 21.234 W \u2248 21.24 W"
         },
         "area_per_mul_lane": {
             "value": 0.002,
@@ -46,9 +36,15 @@
             "unit": "mm",
             "source": "Standard in dense silicon photonic layouts"
         },
-        "reuse_factor": {
-            "value": 8,
-            "source": "Assumed reuse of filters/kernels across inputs"
+        "adc_energy_per_sample": {
+            "value": 1.56e-12,
+            "unit": "J",
+            "source": "Derived from Table I in HolyLight paper: 2 mW ADC per channel @ 1.28 GS/s \u2192 2e-3 W / 1.28e9 samples = 1.56 pJ/sample"
+        },
+        "dynamic_power": {
+            "value": 6.133,
+            "unit": "W",
+            "source": "From HolyLight Table I: includes 2.048 W (ADC), 0.008 W (DAC), 1.877 W (MVM tiles), and 2.2 W (shift-add + PCA). Total \u2248 6.133 W"
         }
     }
 }

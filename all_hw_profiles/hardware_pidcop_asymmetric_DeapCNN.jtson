@@ -1,0 +1,53 @@
+{
+    "pidcop_asymmetric_25G_DeapCNN": {
+        "description": "PIDCOP: Photonic Integer Dot-Product Engine with Configurable Operand Precision. Asymmetric config with N=32, M=64 (2048 dot products)",
+        "mul_lanes": 8,
+        "mul_cols": 193,
+        "bit_precision": 1,
+        "modulator_bit_rate": 25.0,
+        "bit_rate": 6.25,
+        "max_parallel_dotprods": 193,
+        "p_out_per_lane": -22.1,
+        "pd_threshold": -22.0,
+        "dac_energy_per_bit": {
+            "value": 2.6e-11,
+            "unit": "J",
+            "source": "Derived: DAC power 26 mW / 1 GS/s = 26 pJ/bit"
+        },
+        "static_power": {
+            "value": 12.4309,
+            "unit": "W",
+            "source": "MRM (3.52 mW \u00d7 1544), MRR tuning (2 mW \u00d7 3088), control = 0.72 W, laser = 0.1 W; based on MRR-PEOLG paper and architecture config"
+        },
+        "dynamic_power": {
+            "value": 4.8,
+            "unit": "W",
+            "source": "Estimated dynamic power includes: transmitter (driver + serializer) and receiver (TIA + deserializer) per channel for 193 lanes \u00d7 ~25 mW per lane (based on Chen Sun et al., JSSC 2016)"
+        },
+        "area_per_mul_lane": {
+            "value": 0.005,
+            "unit": "mm^2",
+            "source": "Estimated based on Lightbulb and PIXEL photonic lane layouts"
+        },
+        "pca_area": {
+            "value": 0.01,
+            "unit": "mm^2",
+            "source": "Analog integrator and PCA logic area derived from DEAP-CNN (Bangari et al.)"
+        },
+        "adc_area": {
+            "value": 0.002,
+            "unit": "mm^2",
+            "source": "Low-power ADC area in 28\u201365nm CMOS (Lightbulb/PIXEL surveys)"
+        },
+        "waveguide_pitch": {
+            "value": 0.02,
+            "unit": "mm",
+            "source": "Standard silicon photonic WDM routing pitch (20 \u00b5m)"
+        },
+        "adc_energy_per_sample": {
+            "value": 1.52e-11,
+            "unit": "J",
+            "source": "Derived: ADC power 76 mW / 5 GS/s = 15.2 pJ/sample"
+        }
+    }
+}

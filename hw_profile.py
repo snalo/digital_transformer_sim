@@ -10,17 +10,18 @@ class HardwareProfile:
         self.bit_rate = config["bit_rate"]
         self.max_parallel_dotprods = config["max_parallel_dotprods"]
 
-        self.energy_per_mac = config["energy_per_mac"]["value"]
-        self.adc_energy_per_conv = config["adc_energy_per_conv"]["value"]
+        #self.energy_per_mac = config["energy_per_mac"]["value"]
+        self.adc_energy_per_sample = config["adc_energy_per_sample"]["value"]
         self.dac_energy_per_bit = config["dac_energy_per_bit"]["value"]
         self.static_power = config["static_power"]["value"]
+        self.dynamic_power = config["dynamic_power"]["value"]
 
         self.area_per_mul_lane = config["area_per_mul_lane"]["value"]
         self.pca_area = config["pca_area"]["value"]
         self.adc_area = config["adc_area"]["value"]
         self.waveguide_pitch = config["waveguide_pitch"]["value"]
 
-        self.reuse_factor = config["reuse_factor"]["value"]
+        #self.reuse_factor = config["reuse_factor"]["value"]
 
 def load_hardware_profiles(json_path):
     with open(json_path, 'r') as f:

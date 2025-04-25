@@ -1,0 +1,50 @@
+{
+    "deap_cnn": {
+        "description": "DEAP-CNN: Digital Electronics and Analog Photonics for CNNs. Uses microring resonators (MRRs) for dot product computation, balanced photodiodes, and TIAs. Based on Bangari et al., IEEE JSTQE 2020.",
+        "mul_lanes": 32,
+        "mul_cols": 32,
+        "bit_precision": 4,
+        "bit_rate": 5,
+        "max_parallel_dotprods": 32,
+        "adc_energy_per_sample": {
+            "value": 7.6e-14,
+            "unit": "J",
+            "source": "Recalculated from 76 mW ADC @ 5 GS/s"
+        },
+        "dac_energy_per_bit": {
+            "value": 2.6e-11,
+            "unit": "J",
+            "source": "Recalculated: 26 mW DAC at 1 GS/s = 26 pJ/bit"
+        },
+        "static_power": {
+            "value": 29.968,
+            "unit": "W",
+            "source": "Static power includes:\n- Modulators: 1024 \u00d7 19.5 mW = 19.968 W (DEAP-CNN, Section V.A)\n- Lasers: 100 \u00d7 100 mW = 10 W (WDM requirement for 1024 modulators; see Section III.A)"
+        },
+        "dynamic_power": {
+            "value": 5.96992,
+            "unit": "W",
+            "source": "Dynamic power estimated using Chen Sun et al., JSSC 2016 (Table I): Driver = 0.15 mW, Serializer = 0.7 mW, Receiver = 3.48 mW, Deserializer = 1.5 mW per channel; Total for 1024 channels = (0.15 + 0.7 + 3.48 + 1.5) mW \u00d7 1024 = 5.970 W"
+        },
+        "area_per_mul_lane": {
+            "value": 0.002,
+            "unit": "mm^2",
+            "source": "MRR modulator + routing + driver Xu, F.; Zhang, 2024"
+        },
+        "pca_area": {
+            "value": 0.006,
+            "unit": "mm^2",
+            "source": "Integrated photodetector + TIA array (Section III)"
+        },
+        "adc_area": {
+            "value": 0.0015,
+            "unit": "mm^2",
+            "source": "Low-resolution ADC area per output (5 GS/s class)"
+        },
+        "waveguide_pitch": {
+            "value": 0.02,
+            "unit": "mm",
+            "source": "Standard waveguide pitch for silicon photonic WDM arrays"
+        }
+    }
+}
